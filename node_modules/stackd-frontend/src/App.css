@@ -38,7 +38,7 @@ body {
   background: white;
   border-bottom: 1px solid var(--border-color);
   padding: 16px 0;
-  sticky: 0;
+  stroke: 0;
   z-index: 100;
   box-shadow: var(--shadow-sm);
 }

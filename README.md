@@ -4,8 +4,6 @@
 
 A modern FinTech prototype that aggregates assets across multiple categories (cash, stocks, crypto, real estate, private investments) and provides comprehensive financial wellness analytics with personalized recommendations.
 
-## ✨ Features
-
 - **Unified Net Worth**: See your complete financial picture at a glance
 - **Asset Aggregation**: Combine assets from cash, stocks, crypto, real estate, and private investments
 - **Diversification Analysis**: Understand how well your portfolio is diversified
@@ -13,7 +11,6 @@ A modern FinTech prototype that aggregates assets across multiple categories (ca
 - **Risk Assessment**: Identify concentration risks in your portfolio
 - **Financial Health Score**: Get a comprehensive wellness score
 - **Smart Recommendations**: Receive personalized, actionable insights
-- **Modern Dashboard**: Clean, intuitive UI designed for hackathon judging
 
 ## 🚀 Quick Start
 
@@ -59,26 +56,16 @@ stackd/
 │   ├── package.json
 │   ├── .env
 │   └── .env.example
-├── frontend/
 │   ├── src/
 │   │   ├── components/          # React components
-│   │   │   ├── Dashboard.jsx
-│   │   │   ├── NetWorthCard.jsx
-│   │   │   ├── AssetAllocationChart.jsx
 │   │   │   ├── WellnessScore.jsx
-│   │   │   └── RecommendationsList.jsx
 │   │   ├── config/api.js        # API client
 │   │   ├── App.jsx
-│   │   └── index.js
-│   ├── public/index.html
-│   ├── package.json
 │   ├── vite.config.js
-│   ├── .env
 │   └── .env.example
 └── README.md
 ```
 
-## 🎨 Design Highlights
 
 - **Modern Gen Z Aesthetic**: Clean, all-lowercase branding
 - **Responsive Layout**: Works on desktop and mobile
@@ -87,7 +74,6 @@ stackd/
 - **Card-Based UI**: Clear information hierarchy with card components
 - **Real-time Data**: Mock data served from backend API
 
-## 🔧 Tech Stack
 
 ### Backend
 - **Express.js**: Lightweight web framework
@@ -103,7 +89,6 @@ stackd/
 - **CSS3**: Modern styling with gradients and flexbox
 
 ## 💾 Mock Data
-
 The application includes realistic mock data with:
 - 6 different asset categories
 - Total net worth of ~$810k

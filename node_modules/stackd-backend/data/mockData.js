@@ -6,56 +6,88 @@
 export const mockUserAssets = {
   userId: 'user123',
   lastUpdated: new Date().toISOString(),
+  monthlyChange: 2.5,  // percentage change from last month
+  ytdReturn: 8.3,      // year to date return
   assets: [
     {
       id: 'cash1',
       category: 'cash',
+      displayName: 'Cash & Equivalents',
       name: 'Savings Account',
       value: 25000,
       currency: 'USD',
-      icon: '💰'
+      icon: '💰',
+      sector: 'cash',
+      geography: 'USA',
+      monthlyReturn: 0.5,
+      ytdReturn: 2.0
     },
     {
       id: 'stock1',
       category: 'stocks',
+      displayName: 'Equities',
       name: 'Stock Portfolio',
       value: 145000,
       currency: 'USD',
       holdings: ['AAPL', 'MSFT', 'GOOGL', 'TSLA'],
-      icon: '📈'
+      icon: '📈',
+      sector: 'technology',
+      geography: 'USA',
+      monthlyReturn: 3.2,
+      ytdReturn: 12.5
     },
     {
       id: 'crypto1',
       category: 'crypto',
+      displayName: 'Cryptocurrencies',
       name: 'Crypto Holdings',
       value: 35000,
       currency: 'USD',
       holdings: ['BTC', 'ETH', 'USDC'],
-      icon: '₿'
+      icon: '₿',
+      sector: 'digital_assets',
+      geography: 'Global',
+      monthlyReturn: 5.8,
+      ytdReturn: 18.2
     },
     {
       id: 'real_estate1',
       category: 'real_estate',
+      displayName: 'Real Estate',
       name: 'Primary Residence',
       value: 500000,
       currency: 'USD',
-      icon: '🏠'
+      icon: '🏠',
+      sector: 'real_estate',
+      geography: 'USA',
+      monthlyReturn: 0.3,
+      ytdReturn: 1.5
     },
     {
       id: 'private1',
       category: 'private_investments',
+      displayName: 'Private Investments',
       name: 'Startup Equity',
       value: 60000,
       currency: 'USD',
-      icon: '🚀'
+      icon: '🚀',
+      sector: 'private_equity',
+      geography: 'USA',
+      monthlyReturn: 2.1,
+      ytdReturn: 7.8
     },
     {
       id: 'bonds1',
       category: 'bonds',
+      displayName: 'Fixed Income',
       name: 'Bond Portfolio',
       value: 45000,
       currency: 'USD',
-      icon: '📊'
+      icon: '📊',
+      sector: 'fixed_income',
+      geography: 'USA',
+      monthlyReturn: 0.8,
+      ytdReturn: 3.2
     }
   ]
 };
@@ -256,5 +288,100 @@ export const generateWellnessReport = (assets) => {
       overallHealth: calculateFinancialHealthScore(assets)
     },
     recommendations: generateRecommendations(assets)
+  };
+};
+
+/**
+ * Calculate sector exposure
+ */
+export const calculateSectorExposure = (assets) => {
+  const sectors = {};
+  const total = calculateNetWorth(assets);
+
+  assets.forEach(asset => {
+    const sector = asset.sector || 'other';
+    if (!sectors[sector]) {
+      sectors[sector] = 0;
+    }
+    sectors[sector] += asset.value;
+  });
+
+  return Object.entries(sectors).map(([sector, value]) => ({
+    sector: sector.replace(/_/g, ' ').split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
+    value,
+    percentage: Number(((value / total) * 100).toFixed(2))
+  })).sort((a, b) => b.value - a.value);
+};
+
+/**
+ * Calculate geography exposure
+ */
+export const calculateGeographyExposure = (assets) => {
+  const geographies = {};
+  const total = calculateNetWorth(assets);
+
+  assets.forEach(asset => {
+    const geography = asset.geography || 'Other';
+    if (!geographies[geography]) {
+      geographies[geography] = 0;
+    }
+    geographies[geography] += asset.value;
+  });
+
+  return Object.entries(geographies).map(([geography, value]) => ({
+    geography,
+    value,
+    percentage: Number(((value / total) * 100).toFixed(2))
+  })).sort((a, b) => b.value - a.value);
+};
+
+/**
+ * Generate performance history (last 12 months)
+ */
+export const generatePerformanceHistory = (assets) => {
+  const months = [];
+  const today = new Date();
+  
+  for (let i = 11; i >= 0; i--) {
+    const date = new Date(today);
+    date.setMonth(date.getMonth() - i);
+    
+    const monthName = date.toLocaleString('en-US', { month: 'short' });
+    const netWorth = calculateNetWorth(assets);
+    
+    // Simulate historical returns with some randomness
+    const randomVariance = (Math.sin(i * 0.5) + Math.random() * 0.3) * 2;
+    const portfolioReturn = 100 + ((netWorth * (1 + randomVariance / 100)) / netWorth - 1) * 1000;
+    const benchmarkReturn = 100 + (i * 0.7 + Math.random() * 0.5) * 10;
+    
+    months.push({
+      month: monthName,
+      portfolio: Number((portfolioReturn / 10).toFixed(0)),
+      benchmark: Number((benchmarkReturn / 10).toFixed(0))
+    });
+  }
+  
+  return months;
+};
+
+/**
+ * Calculate liquidity breakdown
+ */
+export const calculateLiquidityBreakdown = (assets) => {
+  const liquidCategories = ['cash', 'stocks', 'crypto'];
+  const total = calculateNetWorth(assets);
+
+  const liquidValue = assets
+    .filter(asset => liquidCategories.includes(asset.category))
+    .reduce((sum, asset) => sum + asset.value, 0);
+
+  const liquidPercentage = (liquidValue / total) * 100;
+
+  return {
+    liquidValue,
+    liquidPercentage: Number(liquidPercentage.toFixed(1)),
+    illiquidValue: total - liquidValue,
+    illiquidPercentage: Number((100 - liquidPercentage).toFixed(1)),
+    hasGoodLiquidity: liquidPercentage >= 60
   };
 };
