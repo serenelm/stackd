@@ -1,0 +1,32 @@
+:root {
+    --stackd-bg: #050816;
+    --stackd-bg-soft: #020617;
+    --stackd-surface: #020617;
+    --stackd-surface-soft: #020617;
+    --stackd-border-subtle: rgba(148, 163, 184, 0.3);
+  
+    --stackd-text: #e5e7eb;
+    --stackd-text-soft: #9ca3af;
+    --stackd-text-muted: #6b7280;
+  
+    --stackd-accent: #22c55e;
+    --stackd-accent-soft: rgba(34, 197, 94, 0.12);
+    --stackd-accent-strong: #4ade80;
+  
+    --stackd-warning: #fb7185;
+    --stackd-warning-soft: rgba(251, 113, 133, 0.12);
+  
+    --stackd-radius-lg: 20px;
+    --stackd-radius-md: 16px;
+    --stackd-radius-pill: 999px;
+  
+    --stackd-shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.9);
+    --stackd-shadow-subtle: 0 10px 30px rgba(15, 23, 42, 0.6);
+  
+    --stackd-gap-lg: 24px;
+    --stackd-gap-md: 18px;
+    --stackd-gap-sm: 10px;
+  
+    --stackd-font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+      "Inter", sans-serif;
+  }

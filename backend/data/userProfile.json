@@ -1,0 +1,18 @@
+{
+    "id": "demo-user-1",
+    "name": "stackd demo user",
+    "age": 31,
+    "riskTolerance": "moderate",
+    "timeHorizonYears": 10,
+    "targetEmergencyFundMonths": 6,
+    "targetCashAllocationRange": {
+      "min": 0.10,
+      "max": 0.25
+    },
+    "targetEquityAllocationRange": {
+      "min": 0.45,
+      "max": 0.65
+    },
+    "targetCryptoMax": 0.15,
+    "targetIlliquidMax": 0.30
+  }

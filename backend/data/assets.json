@@ -1,0 +1,82 @@
+[
+    {
+      "id": "cash-1",
+      "type": "cash",
+      "label": "primary checking",
+      "provider": "stackd bank",
+      "currency": "USD",
+      "value": 12500,
+      "liquidity": 1.0,
+      "risk": 0.05
+    },
+    {
+      "id": "cash-2",
+      "type": "cash",
+      "label": "high-yield savings",
+      "provider": "ally",
+      "currency": "USD",
+      "value": 18500,
+      "liquidity": 0.95,
+      "risk": 0.05
+    },
+    {
+      "id": "stock-1",
+      "type": "stocks",
+      "label": "us total market etf",
+      "provider": "vanguard",
+      "currency": "USD",
+      "value": 42000,
+      "liquidity": 0.9,
+      "risk": 0.4
+    },
+    {
+      "id": "stock-2",
+      "type": "stocks",
+      "label": "single tech stock",
+      "provider": "robinhood",
+      "currency": "USD",
+      "value": 16000,
+      "liquidity": 0.9,
+      "risk": 0.7
+    },
+    {
+      "id": "crypto-1",
+      "type": "crypto",
+      "label": "layer 1 token",
+      "provider": "coinbase",
+      "currency": "USD",
+      "value": 9000,
+      "liquidity": 0.85,
+      "risk": 0.8
+    },
+    {
+      "id": "crypto-2",
+      "type": "crypto",
+      "label": "stablecoin",
+      "provider": "binance",
+      "currency": "USD",
+      "value": 6000,
+      "liquidity": 0.9,
+      "risk": 0.3
+    },
+    {
+      "id": "private-1",
+      "type": "private",
+      "label": "seed-stage startup",
+      "provider": "angel investment",
+      "currency": "USD",
+      "value": 25000,
+      "liquidity": 0.1,
+      "risk": 0.85
+    },
+    {
+      "id": "private-2",
+      "type": "private",
+      "label": "real estate syndicate",
+      "provider": "fundrise",
+      "currency": "USD",
+      "value": 30000,
+      "liquidity": 0.25,
+      "risk": 0.6
+    }
+  ]
