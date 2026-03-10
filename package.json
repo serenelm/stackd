@@ -2,10 +2,6 @@
   "name": "stackd",
   "version": "1.0.0",
   "description": "stackd - unified wealth wellness dashboard",
-  "workspaces": [
-    "backend",
-    "frontend"
-  ],
   "scripts": {
     "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
     "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
@@ -22,6 +18,6 @@
   "author": "stackd",
   "license": "MIT",
   "devDependencies": {
-    "concurrently": "^8.2.0"
+    "concurrently": "^8.2.2"
   }
 }
