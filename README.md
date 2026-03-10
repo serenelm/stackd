@@ -31,6 +31,14 @@ npm run dev
 
 The backend will start on `http://localhost:5000`
 
+Make sure you have a `backend/.env` file (you can copy from `.env.example`) with at least:
+
+```env
+PORT=5000
+NODE_ENV=development
+FRONTEND_URL=http://localhost:3000
+```
+
 API Endpoints:
 - `GET /health` - Health check
 - `GET /api/assets` - Aggregated assets
@@ -47,6 +55,23 @@ npm run dev
 ```
 
 The frontend will open at `http://localhost:3000`
+
+Make sure you have a `frontend/.env` file (you can copy from `.env.example`) with at least:
+
+```env
+VITE_API_URL=http://localhost:5000
+```
+
+### One-command dev (optional)
+
+If you prefer to start both apps at once from the project root:
+
+```bash
+npm install
+npm run dev
+```
+
+This uses `concurrently` to run `backend` and `frontend` together. If this ever fails, you can always fall back to starting the backend and frontend in **separate terminals** using the steps above.
 
 ## 📦 Project Structure
 
