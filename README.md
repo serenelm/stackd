@@ -20,7 +20,7 @@ Through simple visualizations and a Wealth Wellness Score, the platform highligh
 
 ## Demo
 
-* Video Pitch: (YouTube link)
+* Video Pitch: https://youtu.be/lg6WOtKLw5Q
 
 ---
 ## 📦 Project Structure
